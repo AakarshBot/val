@@ -41,6 +41,7 @@
         .active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* GIF Wrapper - Consistent Sizing */
         .gif-wrapper {
             width: 100%;
             max-width: 280px;
@@ -52,12 +53,13 @@
             padding: 5px;
         }
 
+        /* Script Boxes - Restoring all your text */
         .script-box {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
             padding: 25px;
             border-radius: 25px;
-            max-width: 450px;
+            max-width: 480px;
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -67,30 +69,32 @@
             text-align: left;
         }
 
+        /* FIXED: Professional Image Scaling (No Cropping) */
         .photo-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             width: 100%;
-            max-width: 360px;
+            max-width: 400px;
             margin-bottom: 20px;
         }
 
         .polaroid {
             background: white;
-            padding: 8px 8px 25px 8px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
             transform: rotate(var(--r));
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .polaroid img {
             width: 100%;
             height: auto;
-            max-height: 250px; /* Increased height limit */
-            object-fit: contain; /* Shows the ENTIRE image */
-            background: #f9f9f9;
+            max-height: 350px;
+            object-fit: contain; /* This prevents any cropping */
+            background: #fdfdfd;
             border-radius: 2px;
         }
 
@@ -103,6 +107,7 @@
             margin: 15px 0;
         }
 
+        /* Buttons Fix */
         .btn-group {
             display: flex;
             gap: 15px;
@@ -110,11 +115,11 @@
             align-items: center;
             width: 100%;
             margin-top: 10px;
-            min-height: 80px;
+            min-height: 70px;
         }
 
         button {
-            padding: 14px 30px;
+            padding: 15px 35px;
             border: none;
             border-radius: 50px;
             font-weight: 800;
@@ -126,16 +131,16 @@
 
         .btn-yes { background: var(--val-red); color: white; }
         .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); position: relative; }
-        
+
         .btn-share {
             background: #fff;
-            color: #555;
-            border: 1px solid #ddd;
+            color: var(--text-dark);
+            border: 1px solid var(--val-pink);
             font-size: 0.9rem;
-            margin-top: 30px;
-            padding: 10px 20px;
+            margin: 20px 0;
         }
 
+        /* Romance Decorations */
         .falling {
             position: fixed;
             pointer-events: none;
@@ -177,9 +182,9 @@
 Maybe you just need a little push…
 Let me tell you why you can’t say no. 
 
-Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you.
+Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you. In these nine months, I know I did a lot of things you dint expect from me, and I really need to thank you for sticking with me even when I was at my worst. 
 
-So, for me, every time we meet is an event. And it will be even more special to spend together what will be our first Valentines Day together. Give me a chance to make your day? Will be you be my Valentine?
+You’ve given me countless reasons why I need you in my life and I hope I have given you at least a few. So, for me, every time we meet is an event. And it will be even more special to spend together what will be our first Valentines Day together. Give me a chance to make your day? Will be you be my Valentine?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(3)">Yes</button>
@@ -195,11 +200,13 @@ So, for me, every time we meet is an event. And it will be even more special to 
             <div class="polaroid" style="--r: 4deg;"><img src="photo4.jpg"></div>
         </div>
         <div class="script-box">
-Okay, Okay… I know it was not that easy to impress you. 
+Okay, Okay… I know it was not that easy to impress you. Lemme try one more time…
 
-I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. 
+I could go on and on about how pretty and cute you are, how you turn eyeballs even in the most crowded places. I could tell you that your smile just erases my pain. I could tell you how your voice soothes any stress I have. I could tell you your love melts me every time. I could tell you that you are probably the best person to have as a friend and how lucky I am that you want to spend your life with me. But it will sound like I am selfish.
 
-You are a special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
+Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. How proud I am of how you built your life. How you automatically gain respect of everyone you talk to. How you are instantly a friend to even the worst of enemies. How you are calm even during fights. How you are calculated even during tough times. 
+
+You are a special, special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(4)">Yes</button>
@@ -213,11 +220,12 @@ You are a special person and I would genuinely want nothing more than spend the 
         </div>
         <div class="script-box">
 What did you say? You already know you are special? 
-Yes you are and that is why I want you to be a big part of my life. 
 
-But with you, I have seen a life I never thought I am capable of living. A life where I learn things, together with you. It is unbelievable that amount of times I think of life with you, in our house.
+Yes you are and that is why I want you to be a big part of my life. I have lived a happy life and I never knew life could be better. My world has always been around sports and I always thought even when having a partner, not much would change. 
 
-So please, let’s spend this Valentines Day together?
+But with you, I have seen a life I never thought I am capable of living. A life where I wake up to the best smile in the world. A life where I can share everything, without having to put on a show. A life where I can pursue things that make me happy, knowing fully well that you will get behind me. A life where I learn things, together with you. It is unbelievable that amount of times I think of life with you, in our house. Waking up together, working together, working out together, getting high together, fighting and crying together, bitching about this cruel world together. I know we will not let each other sleep in a bad mood and 
+
+The time that I have spent with you has taught me so much about the world and myself and this Valentines Day would be a good time to celebrate what is to come in life, together. So please, let’s spend this Valentines Day together?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(5)">Yes</button>
@@ -255,17 +263,15 @@ So please, let’s spend this Valentines Day together?
             <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">Yay 2</a></div>
         </div>
 
-        <div class="polaroid" style="--r: 0deg; width: 300px; margin-bottom: 20px;">
-            <img src="photo5.jpg">
-        </div>
+        <div class="polaroid" style="--r: 0deg; width: 300px; margin-bottom: 20px;"><img src="photo5.jpg"></div>
         
         <h1 style="color: var(--val-red); font-size: 2.3rem; margin: 10px 0;">She said yesssss! ❤️</h1>
-        <p style="font-size: 1.15rem; line-height: 1.6; max-width: 420px; padding: 0 10px;">
+        <p style="font-size: 1.15rem; line-height: 1.6; max-width: 440px; padding: 0 10px;">
             These past nine months have been the best of my life, and I can’t wait to build that future we talked about. I love you more than words can say. Happy our first Valentine's Day!
         </p>
 
-        <button class="btn-share" onclick="shareMoment()">Share this moment ✨</button>
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">cant wait to tell the world I have a Valentine</p>
+        <button class="btn-share" onclick="shareMoment()">Share the Moment ✨</button>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 15px;">cant wait to tell the world I have a Valentine</p>
     </section>
 
     <script>
@@ -283,7 +289,6 @@ So please, let’s spend this Valentines Day together?
             window.scrollTo(0,0);
         }
 
-        // Fixed Runaway Logic: Starts side-by-side, then runs
         const noBtn = document.getElementById('runaway-btn');
         const moveNo = () => {
             const x = Math.random() * (window.innerWidth - 100);
@@ -296,7 +301,6 @@ So please, let’s spend this Valentines Day together?
         noBtn.addEventListener('mouseover', moveNo);
         noBtn.addEventListener('touchstart', moveNo);
 
-        // Share functionality
         function shareMoment() {
             if (navigator.share) {
                 navigator.share({
@@ -309,9 +313,8 @@ So please, let’s spend this Valentines Day together?
             }
         }
 
-        // Falling Romance Decor
         setInterval(() => {
-            const items = ['❤️', '💖', '✨', '🌹'];
+            const items = ['❤️', '💖', '✨', '🌹', '🌸'];
             const span = document.createElement('span');
             span.classList.add('falling');
             span.innerHTML = items[Math.floor(Math.random() * items.length)];
@@ -319,6 +322,7 @@ So please, let’s spend this Valentines Day together?
             span.style.top = '-50px';
             span.style.fontSize = Math.random() * 20 + 15 + 'px';
             span.style.animationDuration = Math.random() * 3 + 4 + 's';
+            span.style.opacity = Math.random();
             document.body.appendChild(span);
             setTimeout(() => span.remove(), 7000);
         }, 400);
