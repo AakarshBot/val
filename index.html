@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Valentine</title>
+    <title>For My Favorite Person</title>
     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     <style>
         :root {
@@ -24,13 +24,12 @@
             text-align: center;
         }
 
-        /* Romantic Floating Background */
         #bg-decor { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
         .page {
             display: none;
             min-height: 100vh;
-            padding: 20px;
+            padding: 30px 20px;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
@@ -42,10 +41,9 @@
         .active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* GIF Container Styling */
         .gif-wrapper {
             width: 100%;
-            max-width: 250px;
+            max-width: 280px;
             margin-bottom: 20px;
             border-radius: 20px;
             overflow: hidden;
@@ -54,7 +52,6 @@
             padding: 5px;
         }
 
-        /* Full Script Text Box */
         .script-box {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
@@ -70,7 +67,6 @@
             text-align: left;
         }
 
-        /* Polaroid Photo Gallery */
         .photo-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -90,27 +86,26 @@
         .polaroid img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            object-fit: cover; /* Fixed: Perfectly cropped photos */
+            object-fit: cover;
             border-radius: 2px;
         }
 
-        /* Compact Spotify Embeds */
         .spotify-compact {
             width: 100%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 25px;
+            margin: 15px 0;
         }
 
-        /* Buttons */
         .btn-group {
             display: flex;
             gap: 15px;
             justify-content: center;
             width: 100%;
-            margin-bottom: 40px;
+            margin-top: 10px;
+            min-height: 60px;
         }
 
         button {
@@ -127,7 +122,6 @@
         .btn-yes { background: var(--val-red); color: white; }
         .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); }
 
-        /* Floating elements */
         .falling {
             position: fixed;
             pointer-events: none;
@@ -154,7 +148,7 @@
         <div class="gif-wrapper">
             <div class="tenor-gif-embed" data-postid="4713366491192211898" data-share-method="host" data-aspect-ratio="1.27168" data-width="100%"><a href="https://tenor.com/view/urso-cora%C3%A7%C3%A3o-gif-4713366491192211898">Urso Coração Sticker</a></div>
         </div>
-        <h1 style="font-size: 2.5rem; color: var(--text-dark);">Will you be my Valentine?</h1>
+        <h1 style="font-size: 2.3rem;">Will you be my Valentine?</h1>
         <div class="btn-group">
             <button class="btn-yes" onclick="toFinal()">Yes</button>
             <button class="btn-no" onclick="nextPage(2)">No</button>
@@ -191,7 +185,7 @@ Okay, Okay… I know it was not that easy to impress you. Lemme try one more tim
 
 I could go on and on about how pretty and cute you are, how you turn eyeballs even in the most crowded places. I could tell you that your smile just erases my pain. I could tell you how your voice soothes any stress I have. 
 
-Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How proud I am of how you built your life. How you automatically gain respect of everyone you talk to. 
+Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. How proud I am of how you built your life. 
 
 You are a special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
         </div>
@@ -223,15 +217,18 @@ The time that I have spent with you has taught me so much and this Valentines Da
         <div class="gif-wrapper">
             <div class="tenor-gif-embed" data-postid="20616351" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/mochi-peach-cat-stroke-squish-gif-20616351">Mochi Peach Sticker</a></div>
         </div>
-        <p style="font-weight: bold; margin-bottom: 15px;">Made up your mind? Will you be my Valentine?</p>
         
+        <p style="padding: 0 20px;">Guess il struggle to convince you, can i interest you in a song or two?</p>
+
         <div class="spotify-compact">
-            <iframe src="https://open.spotify.com/embed/track/6cii6vbf1gITzGEpDrc5BP?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/4YHHz3VIXgNDGdoL9xC1tx?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/6SEolIp22t0DzeBfCBo3hr?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/31MQR9rOHRXyg4J01hRY1h?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/6p2y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/2y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/3y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/4y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
+        <p style="font-weight: bold; margin: 10px 0;">Made up your mind? Will you be my Valentine?</p>
+        
         <div class="btn-group" style="position: relative; height: 80px;">
             <button class="btn-yes" onclick="toFinal()">YES</button>
             <button id="runaway-btn" class="btn-no" style="position: absolute;">No</button>
@@ -239,21 +236,22 @@ The time that I have spent with you has taught me so much and this Valentines Da
     </section>
 
     <section id="final-page" class="page">
-        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-            <div class="gif-wrapper" style="max-width: 160px;">
-                <div class="tenor-gif-embed" data-postid="7989118437833245793" data-share-method="host" data-aspect-ratio="0.983333" data-width="100%"><a href="https://tenor.com/view/peach-goma-gif-7989118437833245793">Peach Goma</a></div>
+        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;">
+            <div class="gif-wrapper" style="max-width: 140px;">
+                <div class="tenor-gif-embed" data-postid="7989118437833245793" data-share-method="host" data-aspect-ratio="0.983333" data-width="100%"><a href="https://tenor.com/view/peach-goma-gif-7989118437833245793">Peach Goma Sticker</a></div>
             </div>
-            <div class="gif-wrapper" style="max-width: 160px;">
-                <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com/view/peach-goma-love-smooch-kiss-gif-5043460768505984264">Kiss</a></div>
+            <div class="gif-wrapper" style="max-width: 140px;">
+                <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com/view/peach-goma-love-smooch-kiss-gif-5043460768505984264">Peach Goma Love Smooch Kiss Sticker</a></div>
             </div>
         </div>
+
         <div class="polaroid" style="--r: 0deg; width: 280px; margin-bottom: 20px;"><img src="photo5.jpg"></div>
-        <h1 style="color: var(--val-red); font-size: 2.5rem;">Yayyyyy…. I Love You…</h1>
-        <p style="font-size: 1.2rem;">Cant wait to tell the world I have a Valentine!</p>
+        
+        <h1 style="color: var(--val-red); font-size: 2.3rem;">Yayyyyy…. I Love You…</h1>
+        <p style="font-size: 1.2rem;">cant wait to tell the world I have a Valentine</p>
     </section>
 
     <script>
-        // PAGE NAVIGATION
         function nextPage(num) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('page' + num).classList.add('active');
@@ -268,7 +266,6 @@ The time that I have spent with you has taught me so much and this Valentines Da
             window.scrollTo(0,0);
         }
 
-        // RUNAWAY BUTTON
         const noBtn = document.getElementById('runaway-btn');
         const moveNo = () => {
             const x = Math.random() * (window.innerWidth - 100);
@@ -280,7 +277,6 @@ The time that I have spent with you has taught me so much and this Valentines Da
         noBtn.addEventListener('mouseover', moveNo);
         noBtn.addEventListener('touchstart', moveNo);
 
-        // ROMANTIC DECOR SPAWNER
         function createDeco() {
             const items = ['❤️', '💖', '✨', '🌹', '🌸'];
             const span = document.createElement('span');
@@ -309,7 +305,6 @@ The time that I have spent with you has taught me so much and this Valentines Da
             }
         }
 
-        // FINAL FLOWER RAIN
         function startFlowerShower() {
             const canvas = document.getElementById('flower-canvas');
             const ctx = canvas.getContext('2d');
@@ -322,7 +317,7 @@ The time that I have spent with you has taught me so much and this Valentines Da
                     y: Math.random() * canvas.height,
                     r: Math.random() * 5 + 2,
                     d: Math.random() * 10,
-                    color: ['#ffb3c1', '#ff4d6d', '#fff0f3'][Math.floor(Math.random() * 3)]
+                    color: ['#ffb3c1', '#ff4d6d', '#ffffff'][Math.floor(Math.random() * 3)]
                 });
             }
             function draw() {
