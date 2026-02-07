@@ -42,7 +42,7 @@
         .active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* GIF Wrapper */
+        /* GIF Wrapper - Consistent Sizing */
         .gif-wrapper {
             width: 100%;
             max-width: 280px;
@@ -90,7 +90,7 @@
         .polaroid img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            object-fit: cover; /* Professional cropping */
+            object-fit: cover;
             border-radius: 2px;
         }
 
@@ -100,7 +100,7 @@
             max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             margin: 15px 0;
         }
 
@@ -128,7 +128,7 @@
         .btn-yes { background: var(--val-red); color: white; }
         .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); }
 
-        /* Falling Elements */
+        /* Romance Decorations */
         .falling {
             position: fixed;
             pointer-events: none;
@@ -228,10 +228,10 @@ The time that I have spent with you has taught me so much and this Valentines Da
         <p style="padding: 10px 20px; font-weight: 500;">Guess il struggle to convince you, can i interest you in a song or two?</p>
 
         <div class="spotify-compact">
-            <iframe src="https://open.spotify.com/embed/track/6p2y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/2y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/3y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/4y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6cii6vbf1gITzGEpDrc5BP?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4YHHz3VIXgNDGdoL9xC1tx?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6SEolIp22t0DzeBfCBo3hr?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/31MQR9rOHRXyg4J01hRY1h?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <p style="font-weight: bold; margin: 15px 0;">Made up your mind? Will you be my Valentine?</p>
@@ -243,19 +243,17 @@ The time that I have spent with you has taught me so much and this Valentines Da
     </section>
 
     <section id="final-page" class="page">
-        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;">
-            <div class="gif-wrapper" style="max-width: 140px;">
-                <div class="tenor-gif-embed" data-postid="7989118437833245793" data-share-method="host" data-aspect-ratio="0.983333" data-width="100%"><a href="https://tenor.com">Yay 1</a></div>
-            </div>
-            <div class="gif-wrapper" style="max-width: 140px;">
-                <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">Yay 2</a></div>
-            </div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="7989118437833245793" data-share-method="host" data-aspect-ratio="0.983333" data-width="100%"><a href="https://tenor.com">Yay 1</a></div>
+        </div>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">Yay 2</a></div>
         </div>
 
         <div class="polaroid" style="--r: 0deg; width: 280px; margin-bottom: 20px;"><img src="photo5.jpg"></div>
         
         <h1 style="color: var(--val-red); font-size: 2.3rem; margin: 10px 0;">Yayyyyy! ❤️</h1>
-        <p style="font-size: 1.15rem; line-height: 1.6; max-width: 400px; padding: 0 10px;">
+        <p style="font-size: 1.15rem; line-height: 1.6; max-width: 420px; padding: 0 10px;">
             I knew you’d say yes! These past nine months have been the best of my life, and I can’t wait to build that future we talked about. I love you more than words can say. Happy our first Valentine's Day!
         </p>
         <p style="font-size: 1rem; opacity: 0.8; margin-top: 15px;">cant wait to tell the world I have a Valentine</p>
@@ -289,7 +287,7 @@ The time that I have spent with you has taught me so much and this Valentines Da
         noBtn.addEventListener('mouseover', moveNo);
         noBtn.addEventListener('touchstart', moveNo);
 
-        // Constant Valentine Rain
+        // Falling Romance Decorations
         setInterval(() => {
             const items = ['❤️', '💖', '✨', '🌹', '🌸'];
             const span = document.createElement('span');
@@ -304,7 +302,6 @@ The time that I have spent with you has taught me so much and this Valentines Da
             setTimeout(() => span.remove(), 7000);
         }, 400);
 
-        // Interactive Sparkle Spawner
         function spawnHearts(e) {
             for(let i=0; i<6; i++) {
                 const h = document.createElement('span');
@@ -317,7 +314,7 @@ The time that I have spent with you has taught me so much and this Valentines Da
             }
         }
 
-        // Success Page Flower Rain
+        // Flower Rain Logic (Final Page)
         function startFlowerShower() {
             const canvas = document.getElementById('flower-canvas');
             const ctx = canvas.getContext('2d');
