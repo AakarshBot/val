@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Favorite Person</title>
+    <title>Will You Be My Valentine?</title>
     <style>
         :root {
             --val-red: #ff4d6d;
@@ -15,116 +15,121 @@
         * { box-sizing: border-box; }
         body, html {
             margin: 0; padding: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--val-soft);
             color: var(--text-dark);
             overflow-x: hidden;
             text-align: center;
         }
 
-        /* Floating Background Elements */
-        .bg-elements {
+        /* Background Decorations */
+        .bg-decor {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             z-index: 0;
+            opacity: 0.6;
         }
 
         .page {
             display: none;
             min-height: 100vh;
-            padding: 30px 20px;
+            padding: 40px 20px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
             z-index: 1;
-            animation: fadeIn 0.6s ease;
+            animation: fadeIn 0.8s ease-out;
         }
 
         .active { display: flex; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-        /* The GIFS */
+        /* GIF Styling */
         .gif-main {
-            width: 200px;
+            width: 220px;
             height: auto;
             border-radius: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Script Boxes */
-        .script-box {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            padding: 25px;
-            border-radius: 30px;
-            max-width: 400px;
-            font-size: 1.1rem;
-            line-height: 1.6;
             margin-bottom: 25px;
-            border: 2px solid white;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
         }
 
-        /* FIXED: Professional Image Cropping */
+        /* Full Script Text Box */
+        .script-box {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 450px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            border: 2px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            white-space: pre-wrap; /* Keeps your script's line breaks */
+            text-align: left;
+        }
+
+        /* Image Cropping & Gallery */
         .photo-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             width: 100%;
-            max-width: 350px;
-            margin-bottom: 20px;
+            max-width: 380px;
+            margin-bottom: 25px;
         }
 
         .polaroid {
             background: white;
-            padding: 8px 8px 25px 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 10px 10px 25px 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             transform: rotate(var(--r));
+            transition: 0.3s;
         }
 
         .polaroid img {
             width: 100%;
-            aspect-ratio: 1 / 1; /* Forces square shape */
-            object-fit: cover;   /* Crops image to fit without stretching */
-            display: block;
+            aspect-ratio: 1 / 1; /* Forces perfectly square photos */
+            object-fit: cover;   /* This is the magic: it crops without stretching */
+            border-radius: 4px;
         }
 
         /* Buttons */
         .btn-group {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             width: 100%;
             min-height: 60px;
         }
 
         button {
-            padding: 15px 35px;
+            padding: 16px 40px;
             border: none;
             border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
+            font-size: 1.1rem;
             transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 1rem;
+            box-shadow: 0 8px 15px rgba(255, 77, 109, 0.2);
         }
 
-        .btn-yes { background: var(--val-red); color: white; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4); }
+        .btn-yes { background: var(--val-red); color: white; }
         .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); }
-        button:active { transform: scale(0.95); }
 
-        /* Spotify List */
-        .spotify-container {
+        /* Spotify Player */
+        .music-list {
             width: 100%;
-            max-width: 350px;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        /* Flower Shower Canvas */
+        /* Flower Shower on Final Page */
         #flower-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -132,18 +137,26 @@
             z-index: 100;
             display: none;
         }
+
+        .falling-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            animation: fall linear forwards;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
     </style>
 </head>
-<body>
+<body onclick="spawnHearts(event)">
 
     <canvas id="flower-canvas"></canvas>
-    <div class="bg-elements" id="bg-elements"></div>
+    <div class="bg-decor" id="bg-decor"></div>
 
     <section id="page1" class="page active">
         <img src="https://media.tenor.com/Onp28jGf4VwAAAAAi/mochi-cat.gif" class="gif-main">
-        <h1>Will you be my Valentine?</h1>
+        <h1 style="font-size: 2.5rem; margin-bottom: 30px;">Will you be my Valentine?</h1>
         <div class="btn-group">
-            <button class="btn-yes" onclick="toFinal()">Yes!</button>
+            <button class="btn-yes" onclick="toFinal()">Yes</button>
             <button class="btn-no" onclick="nextPage(2)">No</button>
         </div>
     </section>
@@ -151,8 +164,12 @@
     <section id="page2" class="page">
         <img src="https://media.tenor.com/vHq1vHjE9uAAAAAi/peach-goma.gif" class="gif-main">
         <div class="script-box">
-            Maybe you just need a little push…<br><br>
-            Do you remember how you felt nine months ago? That is how I feel every time I see your name on my phone.
+Maybe you just need a little push…
+Let me tell you why you can’t say no. 
+
+Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you. In these nine months, I know I did a lot of things you dint expect from me, and I really need to thank you for sticking with me even when I was at my worst. You’ve given me countless reasons why I need you in my life and I hope I have given you at least a few. 
+
+So, for me, every time we meet is an event. And it will be even more special to spend together what will be our first Valentines Day together. Give me a chance to make your day? Will be you be my Valentine?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(3)">Yes</button>
@@ -162,13 +179,19 @@
 
     <section id="page3" class="page">
         <div class="photo-gallery">
-            <div class="polaroid" style="--r: -3deg;"><img src="photo1.jpg"></div>
-            <div class="polaroid" style="--r: 3deg;"><img src="photo2.jpg"></div>
-            <div class="polaroid" style="--r: -2deg;"><img src="photo3.jpg"></div>
-            <div class="polaroid" style="--r: 4deg;"><img src="photo4.jpg"></div>
+            <div class="polaroid" style="--r: -4deg;"><img src="photo1.jpg"></div>
+            <div class="polaroid" style="--r: 2deg;"><img src="photo2.jpg"></div>
+            <div class="polaroid" style="--r: -3deg;"><img src="photo3.jpg"></div>
+            <div class="polaroid" style="--r: 5deg;"><img src="photo4.jpg"></div>
         </div>
         <div class="script-box">
-            I could go on about how pretty you are, but instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back.
+Okay, Okay… I know it was not that easy to impress you. Lemme try one more time…
+
+I could go on and on about how pretty and cute you are, how you turn eyeballs even in the most crowded places. I could tell you that your smile just erases my pain. I could tell you how your voice soothes any stress I have. I could tell you your love melts me every time. I could tell you that you are probably the best person to have as a friend and how lucky I am that you want to spend your life with me. 
+
+Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. How proud I am of how you built your life. 
+
+You are a special, special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(4)">Yes</button>
@@ -179,7 +202,14 @@
     <section id="page4" class="page">
         <img src="https://media.tenor.com/Y179t78S960AAAAAi/mochi-peach-cat-goma.gif" class="gif-main">
         <div class="script-box">
-            I've seen a life I never thought I was capable of living. A life where I wake up to the best smile in the world.
+What did you say? You already know you are special? 
+Yes you are and that is why I want you to be a big part of my life. I have lived a happy life and I never knew life could be better. My world has always been around sports and I always thought even when having a partner, not much would change. 
+
+But with you, I have seen a life I never thought I am capable of living. A life where I wake up to the best smile in the world. A life where I can share everything, without having to put on a show. A life where I can pursue things that make me happy, knowing fully well that you will get behind me. A life where I learn things, together with you.
+
+It is unbelievable that amount of times I think of life with you, in our house. Waking up together, working together, working out together, getting high together, fighting and crying together, bitching about this cruel world together. I know we will not let each other sleep in a bad mood and 
+
+The time that I have spent with you has taught me so much about the world and myself and this Valentines Day would be a good time to celebrate what is to come in life, together. So please, let’s spend this Valentines Day together?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(5)">Yes</button>
@@ -189,89 +219,94 @@
 
     <section id="page5" class="page">
         <img src="https://media.tenor.com/Ym3i-M_p0EwAAAAAi/mochi-peach-cat-goma.gif" class="gif-main">
-        <h3>A few songs for you...</h3>
-        <div class="spotify-container">
-            <iframe src="https://open.spotify.com/embed/track/2" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/3" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/4" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/5" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+        <div class="script-box" style="text-align: center;">
+            Now Now Now…. I am not sure my words can convince you. May I interest you in a song or two? <br><br>
+            <strong>Made up your mind? Will you be my Valentine?</strong>
         </div>
+
+        <div class="music-list">
+            <iframe src="https://open.spotify.com/track/6cii6vbf1gITzGEpDrc5BP?si=fraYgdA5TmWyon488mugnQ" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/track/4YHHz3VIXgNDGdoL9xC1tx?si=RmJ0qpM3TKCmoBwqJg1I4w" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/track/6SEolIp22t0DzeBfCBo3hr?si=x8zewIvrRhWjhjC_3Am9zw" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/track/31MQR9rOHRXyg4J01hRY1h?si=o87zdEe4R6SBMW95zCOMQQ" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+        </div>
+
         <div class="btn-group" style="position: relative; height: 100px;">
             <button class="btn-yes" onclick="toFinal()">YES</button>
-            <button id="runaway-btn" class="btn-no" style="position: absolute; right: 20px;">No</button>
+            <button id="runaway-btn" class="btn-no" style="position: absolute;">No</button>
         </div>
     </section>
 
     <section id="final-page" class="page">
         <img src="https://media.tenor.com/Onp28jGf4VwAAAAAi/mochi-cat.gif" class="gif-main">
-        <div class="polaroid" style="--r: 0deg; width: 250px;"><img src="photo5.jpg"></div>
-        <h1 style="color: var(--val-red); font-size: 2.5rem;">Yayyyyy! ❤️</h1>
-        <p>I Love You... can't wait to tell the world!</p>
+        <div class="polaroid" style="--r: 0deg; width: 280px; margin-bottom: 20px;">
+            <img src="photo5.jpg">
+        </div>
+        <h1 style="color: var(--val-red); font-size: 2.2rem; margin: 10px 0;">Yayyyyy…. I Love You…</h1>
+        <p style="font-size: 1.2rem;">Cant wait to tell the world I have a Valentine!</p>
     </section>
 
     <script>
-        // --- PAGE LOGIC ---
+        // PAGE NAVIGATION
         function nextPage(num) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('page' + num).classList.add('active');
+            window.scrollTo(0, 0);
         }
 
         function toFinal() {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('final-page').classList.add('active');
             startFlowerShower();
+            window.scrollTo(0, 0);
         }
 
-        // --- RUNAWAY BUTTON ---
+        // RUNAWAY BUTTON
         const noBtn = document.getElementById('runaway-btn');
-        noBtn.addEventListener('mouseover', () => {
+        const moveNo = () => {
             const x = Math.random() * (window.innerWidth - 100);
             const y = Math.random() * (window.innerHeight - 100);
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
-        });
+            noBtn.style.zIndex = '1000';
+        };
+        noBtn.addEventListener('mouseover', moveNo);
+        noBtn.addEventListener('touchstart', moveNo);
 
-        // --- BACKGROUND VALENTINE ELEMENTS ---
-        function createDeco() {
-            const elements = ['❤️', '💖', '🌸', '✨'];
-            const div = document.createElement('div');
-            div.innerHTML = elements[Math.floor(Math.random() * elements.length)];
-            div.style.position = 'fixed';
-            div.style.left = Math.random() * 100 + 'vw';
-            div.style.top = '-50px';
-            div.style.fontSize = Math.random() * 20 + 10 + 'px';
-            div.style.transition = 'transform 5s linear, opacity 5s';
-            div.style.opacity = '0.7';
-            document.getElementById('bg-elements').appendChild(div);
-
-            setTimeout(() => {
-                div.style.transform = `translateY(${window.innerHeight + 100}px) rotate(360deg)`;
-            }, 100);
-
-            setTimeout(() => div.remove(), 6000);
+        // CLICK TO SPAWN HEARTS
+        function spawnHearts(e) {
+            const emojis = ['❤️', '💖', '💘', '✨', '🌹'];
+            for (let i = 0; i < 8; i++) {
+                const span = document.createElement('span');
+                span.classList.add('falling-element');
+                span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                span.style.left = (e.clientX || Math.random() * window.innerWidth) + (Math.random() * 40 - 20) + 'px';
+                span.style.top = (e.clientY || 0) + 'px';
+                span.style.fontSize = Math.random() * 20 + 20 + 'px';
+                span.style.animationDuration = Math.random() * 2 + 2 + 's';
+                document.body.appendChild(span);
+                setTimeout(() => span.remove(), 3000);
+            }
         }
-        setInterval(createDeco, 500);
 
-        // --- FINAL PAGE FLOWER SHOWER ---
+        // CONSTANT FLOWER SHOWER (FINAL PAGE)
         function startFlowerShower() {
             const canvas = document.getElementById('flower-canvas');
             canvas.style.display = 'block';
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-
             const petals = [];
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 70; i++) {
                 petals.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
                     r: Math.random() * 5 + 2,
-                    d: Math.random() * 50,
-                    color: ['#ffb3c1', '#ff4d6d', '#ffffff'][Math.floor(Math.random() * 3)]
+                    d: Math.random() * 10,
+                    color: ['#ffb3c1', '#ff4d6d', '#fff0f3'][Math.floor(Math.random() * 3)]
                 });
             }
-
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 petals.forEach(p => {
@@ -279,8 +314,9 @@
                     ctx.fillStyle = p.color;
                     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
                     ctx.fill();
-                    p.y += Math.random() * 2 + 1;
-                    if (p.y > canvas.height) p.y = -10;
+                    p.y += (Math.cos(p.d) + 1 + p.r / 2) / 2;
+                    p.x += Math.sin(p.d) / 2;
+                    if (p.y > canvas.height) p.y = -20;
                 });
                 requestAnimationFrame(draw);
             }
