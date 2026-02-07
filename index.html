@@ -24,7 +24,6 @@
             text-align: center;
         }
 
-        /* Romantic Background Decoration */
         #bg-decor { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
         .page {
@@ -42,7 +41,6 @@
         .active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* GIF Wrapper - Consistent Sizing */
         .gif-wrapper {
             width: 100%;
             max-width: 280px;
@@ -54,7 +52,6 @@
             padding: 5px;
         }
 
-        /* Script Boxes */
         .script-box {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
@@ -70,7 +67,6 @@
             text-align: left;
         }
 
-        /* Polaroid Photo Gallery */
         .photo-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -82,40 +78,43 @@
 
         .polaroid {
             background: white;
-            padding: 8px 8px 20px 8px;
+            padding: 8px 8px 25px 8px;
             box-shadow: 0 8px 15px rgba(0,0,0,0.1);
             transform: rotate(var(--r));
+            display: flex;
+            flex-direction: column;
         }
 
         .polaroid img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+            height: auto;
+            max-height: 250px; /* Increased height limit */
+            object-fit: contain; /* Shows the ENTIRE image */
+            background: #f9f9f9;
             border-radius: 2px;
         }
 
-        /* Compact Spotify Embeds */
         .spotify-compact {
             width: 100%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             margin: 15px 0;
         }
 
-        /* Buttons */
         .btn-group {
             display: flex;
             gap: 15px;
             justify-content: center;
+            align-items: center;
             width: 100%;
             margin-top: 10px;
-            min-height: 60px;
+            min-height: 80px;
         }
 
         button {
-            padding: 14px 35px;
+            padding: 14px 30px;
             border: none;
             border-radius: 50px;
             font-weight: 800;
@@ -126,9 +125,17 @@
         }
 
         .btn-yes { background: var(--val-red); color: white; }
-        .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); }
+        .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); position: relative; }
+        
+        .btn-share {
+            background: #fff;
+            color: #555;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            padding: 10px 20px;
+        }
 
-        /* Romance Decorations */
         .falling {
             position: fixed;
             pointer-events: none;
@@ -170,7 +177,7 @@
 Maybe you just need a little push…
 Let me tell you why you can’t say no. 
 
-Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you. In these nine months, I know I did a lot of things you dint expect from me, and I really need to thank you for sticking with me even when I was at my worst. 
+Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you.
 
 So, for me, every time we meet is an event. And it will be even more special to spend together what will be our first Valentines Day together. Give me a chance to make your day? Will be you be my Valentine?
         </div>
@@ -188,11 +195,9 @@ So, for me, every time we meet is an event. And it will be even more special to 
             <div class="polaroid" style="--r: 4deg;"><img src="photo4.jpg"></div>
         </div>
         <div class="script-box">
-Okay, Okay… I know it was not that easy to impress you. Lemme try one more time…
+Okay, Okay… I know it was not that easy to impress you. 
 
-I could go on and on about how pretty and cute you are, how you turn eyeballs even in the most crowded places. I could tell you that your smile just erases my pain. I could tell you how your voice soothes any stress I have. 
-
-Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. How proud I am of how you built your life. 
+I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. 
 
 You are a special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
         </div>
@@ -208,11 +213,11 @@ You are a special person and I would genuinely want nothing more than spend the 
         </div>
         <div class="script-box">
 What did you say? You already know you are special? 
-Yes you are and that is why I want you to be a big part of my life. My world has always been around sports... But with you, I have seen a life I never thought I am capable of living.
+Yes you are and that is why I want you to be a big part of my life. 
 
-A life where I wake up to the best smile in the world. A life where I can share everything, without having to put on a show. A life where I learn things, together with you. It is unbelievable that amount of times I think of life with you, in our house.
+But with you, I have seen a life I never thought I am capable of living. A life where I learn things, together with you. It is unbelievable that amount of times I think of life with you, in our house.
 
-The time that I have spent with you has taught me so much and this Valentines Day would be a good time to celebrate what is to come in life, together. So please, let’s spend this Valentines Day together?
+So please, let’s spend this Valentines Day together?
         </div>
         <div class="btn-group">
             <button class="btn-yes" onclick="nextPage(5)">Yes</button>
@@ -228,17 +233,17 @@ The time that I have spent with you has taught me so much and this Valentines Da
         <p style="padding: 10px 20px; font-weight: 500;">Guess il struggle to convince you, can i interest you in a song or two?</p>
 
         <div class="spotify-compact">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6cii6vbf1gITzGEpDrc5BP?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4YHHz3VIXgNDGdoL9xC1tx?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6SEolIp22t0DzeBfCBo3hr?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/31MQR9rOHRXyg4J01hRY1h?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6cii6vbf1gITzGEpDrc5BP?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4YHHz3VIXgNDGdoL9xC1tx?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6SEolIp22t0DzeBfCBo3hr?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/31MQR9rOHRXyg4J01hRY1h?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
         </div>
 
         <p style="font-weight: bold; margin: 15px 0;">Made up your mind? Will you be my Valentine?</p>
         
-        <div class="btn-group" style="position: relative; height: 80px;">
+        <div class="btn-group">
             <button class="btn-yes" onclick="toFinal()">YES</button>
-            <button id="runaway-btn" class="btn-no" style="position: absolute;">No</button>
+            <button id="runaway-btn" class="btn-no">No</button>
         </div>
     </section>
 
@@ -250,17 +255,20 @@ The time that I have spent with you has taught me so much and this Valentines Da
             <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">Yay 2</a></div>
         </div>
 
-        <div class="polaroid" style="--r: 0deg; width: 280px; margin-bottom: 20px;"><img src="photo5.jpg"></div>
+        <div class="polaroid" style="--r: 0deg; width: 300px; margin-bottom: 20px;">
+            <img src="photo5.jpg">
+        </div>
         
-        <h1 style="color: var(--val-red); font-size: 2.3rem; margin: 10px 0;">Yayyyyy! ❤️</h1>
+        <h1 style="color: var(--val-red); font-size: 2.3rem; margin: 10px 0;">She said yesssss! ❤️</h1>
         <p style="font-size: 1.15rem; line-height: 1.6; max-width: 420px; padding: 0 10px;">
-            I knew you’d say yes! These past nine months have been the best of my life, and I can’t wait to build that future we talked about. I love you more than words can say. Happy our first Valentine's Day!
+            These past nine months have been the best of my life, and I can’t wait to build that future we talked about. I love you more than words can say. Happy our first Valentine's Day!
         </p>
-        <p style="font-size: 1rem; opacity: 0.8; margin-top: 15px;">cant wait to tell the world I have a Valentine</p>
+
+        <button class="btn-share" onclick="shareMoment()">Share this moment ✨</button>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">cant wait to tell the world I have a Valentine</p>
     </section>
 
     <script>
-        // Navigation Logic
         function nextPage(num) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('page' + num).classList.add('active');
@@ -275,7 +283,7 @@ The time that I have spent with you has taught me so much and this Valentines Da
             window.scrollTo(0,0);
         }
 
-        // Runaway Button Logic
+        // Fixed Runaway Logic: Starts side-by-side, then runs
         const noBtn = document.getElementById('runaway-btn');
         const moveNo = () => {
             const x = Math.random() * (window.innerWidth - 100);
@@ -283,13 +291,27 @@ The time that I have spent with you has taught me so much and this Valentines Da
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
+            noBtn.style.zIndex = '1000';
         };
         noBtn.addEventListener('mouseover', moveNo);
         noBtn.addEventListener('touchstart', moveNo);
 
-        // Falling Romance Decorations
+        // Share functionality
+        function shareMoment() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'She said YES!',
+                    text: 'I just became the luckiest person in the world! ❤️',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                alert("Take a screenshot to share the love! ❤️");
+            }
+        }
+
+        // Falling Romance Decor
         setInterval(() => {
-            const items = ['❤️', '💖', '✨', '🌹', '🌸'];
+            const items = ['❤️', '💖', '✨', '🌹'];
             const span = document.createElement('span');
             span.classList.add('falling');
             span.innerHTML = items[Math.floor(Math.random() * items.length)];
@@ -297,7 +319,6 @@ The time that I have spent with you has taught me so much and this Valentines Da
             span.style.top = '-50px';
             span.style.fontSize = Math.random() * 20 + 15 + 'px';
             span.style.animationDuration = Math.random() * 3 + 4 + 's';
-            span.style.opacity = Math.random();
             document.body.appendChild(span);
             setTimeout(() => span.remove(), 7000);
         }, 400);
@@ -314,7 +335,6 @@ The time that I have spent with you has taught me so much and this Valentines Da
             }
         }
 
-        // Flower Rain Logic (Final Page)
         function startFlowerShower() {
             const canvas = document.getElementById('flower-canvas');
             const ctx = canvas.getContext('2d');
