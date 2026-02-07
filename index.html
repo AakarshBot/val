@@ -41,7 +41,6 @@
         .active { display: flex; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* GIF Wrapper - Consistent Sizing */
         .gif-wrapper {
             width: 100%;
             max-width: 280px;
@@ -53,14 +52,13 @@
             padding: 5px;
         }
 
-        /* Script Boxes - Restoring all your text */
         .script-box {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(8px);
             padding: 25px;
             border-radius: 25px;
             max-width: 480px;
-            font-size: 1rem;
+            font-size: 1.02rem;
             line-height: 1.6;
             margin-bottom: 20px;
             border: 2px solid white;
@@ -69,32 +67,31 @@
             text-align: left;
         }
 
-        /* FIXED: Professional Image Scaling (No Cropping) */
+        /* Image Section: No Cropping */
         .photo-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             margin-bottom: 20px;
         }
 
         .polaroid {
             background: white;
             padding: 10px 10px 30px 10px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             transform: rotate(var(--r));
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 220px; /* Increased container height */
         }
 
         .polaroid img {
-            width: 100%;
-            height: auto;
-            max-height: 350px;
-            object-fit: contain; /* This prevents any cropping */
-            background: #fdfdfd;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* ENTIRE image is visible */
             border-radius: 2px;
         }
 
@@ -107,19 +104,19 @@
             margin: 15px 0;
         }
 
-        /* Buttons Fix */
+        /* Side-by-Side Buttons */
         .btn-group {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             align-items: center;
             width: 100%;
             margin-top: 10px;
-            min-height: 70px;
+            min-height: 80px;
         }
 
         button {
-            padding: 15px 35px;
+            padding: 15px 40px;
             border: none;
             border-radius: 50px;
             font-weight: 800;
@@ -131,16 +128,16 @@
 
         .btn-yes { background: var(--val-red); color: white; }
         .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); position: relative; }
-
+        
         .btn-share {
             background: #fff;
             color: var(--text-dark);
             border: 1px solid var(--val-pink);
-            font-size: 0.9rem;
-            margin: 20px 0;
+            font-size: 0.95rem;
+            margin: 30px 0;
+            padding: 12px 25px;
         }
 
-        /* Romance Decorations */
         .falling {
             position: fixed;
             pointer-events: none;
@@ -221,9 +218,11 @@ You are a special, special person and I would genuinely want nothing more than s
         <div class="script-box">
 What did you say? You already know you are special? 
 
-Yes you are and that is why I want you to be a big part of my life. I have lived a happy life and I never knew life could be better. My world has always been around sports and I always thought even when having a partner, not much would change. 
+Yes you are and that is why I want you to be a big part of my life. I have lived a happy life and I never knew life could be better. My world has always been around sports and I always thought even when having a partner, not much would change. But with you, I have seen a life I never thought I am capable of living. A life where I wake up to the best smile in the world. 
 
-But with you, I have seen a life I never thought I am capable of living. A life where I wake up to the best smile in the world. A life where I can share everything, without having to put on a show. A life where I can pursue things that make me happy, knowing fully well that you will get behind me. A life where I learn things, together with you. It is unbelievable that amount of times I think of life with you, in our house. Waking up together, working together, working out together, getting high together, fighting and crying together, bitching about this cruel world together. I know we will not let each other sleep in a bad mood and 
+A life where I can share everything, without having to put on a show. A life where I can pursue things that make me happy, knowing fully well that you will get behind me. A life where I learn things, together with you.
+
+It is unbelievable that amount of times I think of life with you, in our house. Waking up together, working together, working out together, getting high together, fighting and crying together, bitching about this cruel world together. I know we will not let each other sleep in a bad mood and 
 
 The time that I have spent with you has taught me so much about the world and myself and this Valentines Day would be a good time to celebrate what is to come in life, together. So please, let’s spend this Valentines Day together?
         </div>
@@ -263,7 +262,9 @@ The time that I have spent with you has taught me so much about the world and my
             <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">Yay 2</a></div>
         </div>
 
-        <div class="polaroid" style="--r: 0deg; width: 300px; margin-bottom: 20px;"><img src="photo5.jpg"></div>
+        <div class="polaroid" style="--r: 0deg; width: 300px; height: auto; margin-bottom: 25px;">
+            <img src="photo5.jpg">
+        </div>
         
         <h1 style="color: var(--val-red); font-size: 2.3rem; margin: 10px 0;">She said yesssss! ❤️</h1>
         <p style="font-size: 1.15rem; line-height: 1.6; max-width: 440px; padding: 0 10px;">
@@ -271,7 +272,7 @@ The time that I have spent with you has taught me so much about the world and my
         </p>
 
         <button class="btn-share" onclick="shareMoment()">Share the Moment ✨</button>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 15px;">cant wait to tell the world I have a Valentine</p>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 15px;">cant wait to tell the world I have a Valentine</p>
     </section>
 
     <script>
