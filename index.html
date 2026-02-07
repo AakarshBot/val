@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Valentine</title>
+    <title>For My Favorite Person</title>
     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     <style>
         :root {
@@ -11,21 +11,20 @@
             --val-pink: #ffb3c1;
             --val-soft: #fff0f3;
             --text-dark: #590d22;
-            --gold: #ffb703;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body, html {
             margin: 0; padding: 0;
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #fff0f3 0%, #ffb3c1 100%);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: radial-gradient(circle, #fff0f3 0%, #ffb3c1 100%);
             color: var(--text-dark);
             overflow-x: hidden;
             text-align: center;
         }
 
-        /* Animated Background Elements */
+        /* Romantic Background Decoration */
         #bg-decor { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
         .page {
@@ -37,104 +36,99 @@
             justify-content: flex-start;
             position: relative;
             z-index: 1;
-            animation: slideUp 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            animation: fadeIn 0.6s ease-out;
         }
 
         .active { display: flex; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Valentine GIF Styling */
+        /* GIF Wrapper */
         .gif-wrapper {
             width: 100%;
-            max-width: 260px;
+            max-width: 280px;
             margin-bottom: 20px;
-            border-radius: 30px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
             background: white;
-            padding: 8px;
-            border: 3px solid white;
+            padding: 5px;
         }
 
-        /* Enhanced Script Box */
+        /* Script Boxes */
         .script-box {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
             padding: 25px;
             border-radius: 25px;
             max-width: 450px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 20px;
-            border: 2px solid var(--val-pink);
-            box-shadow: 0 10px 40px rgba(89, 13, 34, 0.1);
+            border: 2px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             white-space: pre-wrap;
             text-align: left;
-            position: relative;
         }
 
         /* Polaroid Photo Gallery */
         .photo-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
-            max-width: 380px;
+            max-width: 360px;
             margin-bottom: 20px;
         }
 
         .polaroid {
             background: white;
-            padding: 8px 8px 25px 8px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            padding: 8px 8px 20px 8px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
             transform: rotate(var(--r));
-            border: 1px solid #eee;
         }
 
         .polaroid img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 3px;
+            object-fit: cover; /* Professional cropping */
+            border-radius: 2px;
         }
 
-        /* Mobile Single-Line Spotify */
+        /* Compact Spotify Embeds */
         .spotify-compact {
             width: 100%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 8px;
+            margin: 15px 0;
         }
 
-        /* Romance Buttons */
+        /* Buttons */
         .btn-group {
             display: flex;
             gap: 15px;
             justify-content: center;
             width: 100%;
-            margin-bottom: 50px;
+            margin-top: 10px;
             min-height: 60px;
         }
 
         button {
-            padding: 16px 35px;
+            padding: 14px 35px;
             border: none;
             border-radius: 50px;
             font-weight: 800;
             cursor: pointer;
             font-size: 1.1rem;
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .btn-yes { background: linear-gradient(45deg, var(--val-red), #ff758c); color: white; }
+        .btn-yes { background: var(--val-red); color: white; }
         .btn-no { background: white; color: var(--val-red); border: 2px solid var(--val-red); }
 
-        /* Animation Classes */
+        /* Falling Elements */
         .falling {
             position: fixed;
             pointer-events: none;
@@ -152,82 +146,87 @@
         }
     </style>
 </head>
-<body onclick="spawnSparkles(event)">
+<body onclick="spawnHearts(event)">
 
     <canvas id="flower-canvas"></canvas>
     <div id="bg-decor"></div>
 
     <section id="page1" class="page active">
         <div class="gif-wrapper">
-            <div class="tenor-gif-embed" data-postid="4713366491192211898" data-share-method="host" data-aspect-ratio="1.27168" data-width="100%"><a href="https://tenor.com">GIF</a></div>
+            <div class="tenor-gif-embed" data-postid="4713366491192211898" data-share-method="host" data-aspect-ratio="1.27168" data-width="100%"><a href="https://tenor.com">Peach Goma</a></div>
         </div>
-        <h1 style="font-size: 2.5rem; text-shadow: 2px 2px white;">Will you be my Valentine? 🌹</h1>
+        <h1 style="font-size: 2.3rem;">Will you be my Valentine?</h1>
         <div class="btn-group">
-            <button class="btn-yes" onclick="toFinal()">YES!</button>
+            <button class="btn-yes" onclick="toFinal()">Yes</button>
             <button class="btn-no" onclick="nextPage(2)">No</button>
         </div>
     </section>
 
     <section id="page2" class="page">
         <div class="gif-wrapper">
-            <div class="tenor-gif-embed" data-postid="26865138" data-share-method="host" data-aspect-ratio="1.06312" data-width="100%"><a href="https://tenor.com">GIF</a></div>
+            <div class="tenor-gif-embed" data-postid="26865138" data-share-method="host" data-aspect-ratio="1.06312" data-width="100%"><a href="https://tenor.com">Peach Goma</a></div>
         </div>
         <div class="script-box">
 Maybe you just need a little push…
 Let me tell you why you can’t say no. 
 
-Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. 
+Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you. In these nine months, I know I did a lot of things you dint expect from me, and I really need to thank you for sticking with me even when I was at my worst. 
 
-So, for me, every time we meet is an event. And it will be even more special to spend our first Valentines Day together. Give me a chance to make your day? Will you be my Valentine?
+So, for me, every time we meet is an event. And it will be even more special to spend together what will be our first Valentines Day together. Give me a chance to make your day? Will be you be my Valentine?
         </div>
         <div class="btn-group">
-            <button class="btn-yes" onclick="nextPage(3)">YES</button>
+            <button class="btn-yes" onclick="nextPage(3)">Yes</button>
             <button class="btn-no" onclick="nextPage(3)">No</button>
         </div>
     </section>
 
     <section id="page3" class="page">
         <div class="photo-gallery">
-            <div class="polaroid" style="--r: -4deg;"><img src="photo1.jpg"></div>
-            <div class="polaroid" style="--r: 3deg;"><img src="photo2.jpg"></div>
+            <div class="polaroid" style="--r: -3deg;"><img src="photo1.jpg"></div>
+            <div class="polaroid" style="--r: 2deg;"><img src="photo2.jpg"></div>
             <div class="polaroid" style="--r: -2deg;"><img src="photo3.jpg"></div>
-            <div class="polaroid" style="--r: 5deg;"><img src="photo4.jpg"></div>
+            <div class="polaroid" style="--r: 4deg;"><img src="photo4.jpg"></div>
         </div>
         <div class="script-box">
-Okay, Okay… I know it was not that easy to impress you. 
+Okay, Okay… I know it was not that easy to impress you. Lemme try one more time…
 
-Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How you automatically gain respect of everyone you talk to. 
+I could go on and on about how pretty and cute you are, how you turn eyeballs even in the most crowded places. I could tell you that your smile just erases my pain. I could tell you how your voice soothes any stress I have. 
+
+Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well, showing how strong you are. How your problem solving helps you navigate what has been a tough little world for you. How proud I am of how you built your life. 
 
 You are a special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
         </div>
         <div class="btn-group">
-            <button class="btn-yes" onclick="nextPage(4)">YES</button>
+            <button class="btn-yes" onclick="nextPage(4)">Yes</button>
             <button class="btn-no" onclick="nextPage(4)">No</button>
         </div>
     </section>
 
     <section id="page4" class="page">
         <div class="gif-wrapper">
-            <div class="tenor-gif-embed" data-postid="7478223491772079347" data-share-method="host" data-aspect-ratio="1.06667" data-width="100%"><a href="https://tenor.com">GIF</a></div>
+            <div class="tenor-gif-embed" data-postid="7478223491772079347" data-share-method="host" data-aspect-ratio="1.06667" data-width="100%"><a href="https://tenor.com">Peach Goma</a></div>
         </div>
         <div class="script-box">
 What did you say? You already know you are special? 
-Yes you are and that is why I want you to be a big part of my life. 
+Yes you are and that is why I want you to be a big part of my life. My world has always been around sports... But with you, I have seen a life I never thought I am capable of living.
 
-Waking up together, working together, fighting and crying together... this Valentines Day would be a good time to celebrate what is to come. So please, let’s spend this Valentines Day together?
+A life where I wake up to the best smile in the world. A life where I can share everything, without having to put on a show. A life where I learn things, together with you. It is unbelievable that amount of times I think of life with you, in our house.
+
+The time that I have spent with you has taught me so much and this Valentines Day would be a good time to celebrate what is to come in life, together. So please, let’s spend this Valentines Day together?
         </div>
         <div class="btn-group">
-            <button class="btn-yes" onclick="nextPage(5)">YES</button>
+            <button class="btn-yes" onclick="nextPage(5)">Yes</button>
             <button class="btn-no" onclick="nextPage(5)">No</button>
         </div>
     </section>
 
     <section id="page5" class="page">
         <div class="gif-wrapper">
-            <div class="tenor-gif-embed" data-postid="20616351" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com">GIF</a></div>
+            <div class="tenor-gif-embed" data-postid="20616351" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com">Peach Goma</a></div>
         </div>
-        <p style="padding: 10px 20px; font-weight: bold; font-size: 1.1rem;">Guess il struggle to convince you, can i interest you in a song or two? ✨</p>
-        
+
+        <p style="padding: 10px 20px; font-weight: 500;">Guess il struggle to convince you, can i interest you in a song or two?</p>
+
         <div class="spotify-compact">
             <iframe src="https://open.spotify.com/embed/track/6p2y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
             <iframe src="https://open.spotify.com/embed/track/2y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
@@ -235,7 +234,7 @@ Waking up together, working together, fighting and crying together... this Valen
             <iframe src="https://open.spotify.com/embed/track/4y45i3rUjXoXqj73b4k0" width="100%" height="80" frameBorder="0" allow="autoplay; encrypted-media;" loading="lazy"></iframe>
         </div>
 
-        <p style="font-weight: 900; color: var(--val-red); margin: 15px 0;">Made up your mind? Will you be my Valentine?</p>
+        <p style="font-weight: bold; margin: 15px 0;">Made up your mind? Will you be my Valentine?</p>
         
         <div class="btn-group" style="position: relative; height: 80px;">
             <button class="btn-yes" onclick="toFinal()">YES</button>
@@ -245,22 +244,25 @@ Waking up together, working together, fighting and crying together... this Valen
 
     <section id="final-page" class="page">
         <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;">
-            <div class="gif-wrapper" style="max-width: 145px;">
-                <div class="tenor-gif-embed" data-postid="7989118437833245793" data-share-method="host" data-aspect-ratio="0.983333" data-width="100%"><a href="https://tenor.com">GIF</a></div>
+            <div class="gif-wrapper" style="max-width: 140px;">
+                <div class="tenor-gif-embed" data-postid="7989118437833245793" data-share-method="host" data-aspect-ratio="0.983333" data-width="100%"><a href="https://tenor.com">Yay 1</a></div>
             </div>
-            <div class="gif-wrapper" style="max-width: 145px;">
-                <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">GIF</a></div>
+            <div class="gif-wrapper" style="max-width: 140px;">
+                <div class="tenor-gif-embed" data-postid="5043460768505984264" data-share-method="host" data-aspect-ratio="0.982456" data-width="100%"><a href="https://tenor.com">Yay 2</a></div>
             </div>
         </div>
 
-        <div class="polaroid" style="--r: 0deg; width: 300px; margin-bottom: 25px;"><img src="photo5.jpg"></div>
+        <div class="polaroid" style="--r: 0deg; width: 280px; margin-bottom: 20px;"><img src="photo5.jpg"></div>
         
-        <h1 style="color: var(--val-red); font-size: 2.5rem; text-shadow: 2px 2px white; margin: 0;">Yayyyyy…. I Love You! ❤️</h1>
-        <p style="font-size: 1.2rem; font-weight: 500; margin-top: 15px;">I can't wait to tell the world I have a Valentine!</p>
+        <h1 style="color: var(--val-red); font-size: 2.3rem; margin: 10px 0;">Yayyyyy! ❤️</h1>
+        <p style="font-size: 1.15rem; line-height: 1.6; max-width: 400px; padding: 0 10px;">
+            I knew you’d say yes! These past nine months have been the best of my life, and I can’t wait to build that future we talked about. I love you more than words can say. Happy our first Valentine's Day!
+        </p>
+        <p style="font-size: 1rem; opacity: 0.8; margin-top: 15px;">cant wait to tell the world I have a Valentine</p>
     </section>
 
     <script>
-        // NAVIGATION
+        // Navigation Logic
         function nextPage(num) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('page' + num).classList.add('active');
@@ -275,7 +277,7 @@ Waking up together, working together, fighting and crying together... this Valen
             window.scrollTo(0,0);
         }
 
-        // RUNAWAY BUTTON
+        // Runaway Button Logic
         const noBtn = document.getElementById('runaway-btn');
         const moveNo = () => {
             const x = Math.random() * (window.innerWidth - 100);
@@ -287,51 +289,48 @@ Waking up together, working together, fighting and crying together... this Valen
         noBtn.addEventListener('mouseover', moveNo);
         noBtn.addEventListener('touchstart', moveNo);
 
-        // VALENTINE ELEMENT SPAWNER (Hearts, Roses, Sparkles)
-        function createValentineDeco() {
-            const items = ['❤️', '💖', '🌹', '✨', '🌸', '💘'];
+        // Constant Valentine Rain
+        setInterval(() => {
+            const items = ['❤️', '💖', '✨', '🌹', '🌸'];
             const span = document.createElement('span');
             span.classList.add('falling');
             span.innerHTML = items[Math.floor(Math.random() * items.length)];
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = '-50px';
-            span.style.fontSize = Math.random() * 20 + 20 + 'px';
-            span.style.animationDuration = Math.random() * 3 + 5 + 's';
+            span.style.fontSize = Math.random() * 20 + 15 + 'px';
+            span.style.animationDuration = Math.random() * 3 + 4 + 's';
             span.style.opacity = Math.random();
-            document.getElementById('bg-decor').appendChild(span);
-            setTimeout(() => span.remove(), 8000);
-        }
-        setInterval(createValentineDeco, 300);
+            document.body.appendChild(span);
+            setTimeout(() => span.remove(), 7000);
+        }, 400);
 
-        function spawnSparkles(e) {
-            const colors = ['#ff4d6d', '#ffb3c1', '#ffd700'];
-            for(let i=0; i<8; i++) {
-                const s = document.createElement('span');
-                s.classList.add('falling');
-                s.innerHTML = '✨';
-                s.style.color = colors[Math.floor(Math.random() * colors.length)];
-                s.style.left = (e.clientX || Math.random() * window.innerWidth) + 'px';
-                s.style.top = (e.clientY || 0) + 'px';
-                s.style.animationDuration = '1.5s';
-                document.body.appendChild(s);
-                setTimeout(() => s.remove(), 1500);
+        // Interactive Sparkle Spawner
+        function spawnHearts(e) {
+            for(let i=0; i<6; i++) {
+                const h = document.createElement('span');
+                h.classList.add('falling'); h.innerHTML = '❤️';
+                h.style.left = (e.clientX || Math.random() * window.innerWidth) + 'px';
+                h.style.top = (e.clientY || 0) + 'px';
+                h.style.animationDuration = '2s';
+                document.body.appendChild(h);
+                setTimeout(() => h.remove(), 2000);
             }
         }
 
-        // FINAL PAGE FLOWER SHOWER
+        // Success Page Flower Rain
         function startFlowerShower() {
             const canvas = document.getElementById('flower-canvas');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             const petals = [];
-            for (let i = 0; i < 80; i++) {
+            for (let i = 0; i < 75; i++) {
                 petals.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
                     r: Math.random() * 5 + 2,
                     d: Math.random() * 10,
-                    color: ['#ffb3c1', '#ff4d6d', '#ffffff', '#ff85a1'][Math.floor(Math.random() * 4)]
+                    color: ['#ffb3c1', '#ff4d6d', '#ffffff'][Math.floor(Math.random() * 3)]
                 });
             }
             function draw() {
@@ -339,8 +338,8 @@ Waking up together, working together, fighting and crying together... this Valen
                 petals.forEach(p => {
                     ctx.beginPath(); ctx.fillStyle = p.color;
                     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
-                    p.y += 2; p.x += Math.sin(p.d) * 0.7;
-                    if (p.y > canvas.height) p.y = -10;
+                    p.y += 1.8; p.x += Math.sin(p.d) * 0.6;
+                    if (p.y > canvas.height) p.y = -15;
                 });
                 requestAnimationFrame(draw);
             }
