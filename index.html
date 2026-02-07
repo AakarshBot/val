@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        :root {
+            --val-red: #ff4d6d;
+            --val-pink: #ffb3c1;
+            --val-soft: #fff0f3;
+            --text-dark: #590d22;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--val-soft);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .active { display: flex; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Script/Text Box */
+        .script-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            max-width: 90%;
+            margin: 15px 0;
+            line-height: 1.5;
+            font-size: 1.05rem;
+            white-space: pre-wrap;
+        }
+
+        /* Peach & Goma GIFS */
+        .gif-container img {
+            width: 180px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Dynamic Photo Gallery */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 95%;
+            margin: 15px 0;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px 10px 25px 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            transform: rotate(var(--rot));
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 150px; /* Fixed height for consistency */
+            object-fit: cover; /* This fixes the cropping/scaling issue */
+            border-radius: 2px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+            width: 100%;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-yes { background-color: var(--val-red); color: white; }
+        .btn-no { background-color: white; color: var(--val-red); border: 2px solid var(--val-red); }
+
+        /* Music Container */
+        .music-list {
+            width: 95%;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Heart Shower Animation */
+        .falling-heart {
+            position: fixed;
+            top: -20px;
+            font-size: 24px;
+            animation: fall linear forwards;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body onclick="createHeartShower()">
+
+    <section id="page1" class="page active">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/vHq1vHjE9uAAAAAi/peach-goma.gif" alt="Waiting">
+        </div>
+        <h1>Will you be my Valentine?</h1>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="nextPage('final')">Yes</button>
+            <button class="btn-no" onclick="nextPage(2)">No</button>
+        </div>
+    </section>
+
+    <section id="page2" class="page">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/vHq1vHjE9uAAAAAi/peach-goma.gif" alt="Thinking">
+        </div>
+        <div class="script-box">
+Maybe you just need a little push…
+Let me tell you why you can’t say no. 
+
+Do you remember how you felt nine months ago, the first time you laid eyes on me? That is how I feel every time I see your name on my phone. That is how I feel every time I think of a future with you. In these nine months, I know I did a lot of things you dint expect from me, and I really need to thank you for sticking with me even when I was at my worst. 
+
+You’ve given me countless reasons why I need you in my life and I hope I have given you at least a few. So, for me, every time we meet is an event. And it will be even more special to spend together what will be our first Valentines Day together. Give me a chance to make your day? Will be you be my Valentine?
+        </div>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="nextPage(3)">Yes</button>
+            <button class="btn-no" onclick="nextPage(3)">No</button>
+        </div>
+    </section>
+
+    <section id="page3" class="page">
+        <div class="photo-grid">
+            <div class="polaroid" style="--rot: -3deg;"><img src="photo1.jpg"></div>
+            <div class="polaroid" style="--rot: 2deg;"><img src="photo2.jpg"></div>
+            <div class="polaroid" style="--rot: -2deg;"><img src="photo3.jpg"></div>
+            <div class="polaroid" style="--rot: 3deg;"><img src="photo4.jpg"></div>
+        </div>
+        <div class="script-box">
+Okay, Okay… I know it was not that easy to impress you. Lemme try one more time…
+
+I could go on and on about how pretty and cute you are, how you turn eyeballs even in the most crowded places... Instead, I want to tell you how cool and smart you are. How you take setbacks on the chin and bounce back so well. How your problem solving helps you navigate what has been a tough little world for you. How proud I am of how you built your life. 
+
+You are a special, special person and I would genuinely want nothing more than spend the rest of my life admiring you. So, can I be your Valentine please?
+        </div>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="nextPage(4)">Yes</button>
+            <button class="btn-no" onclick="nextPage(4)">No</button>
+        </div>
+    </section>
+
+    <section id="page4" class="page">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/Y179t78S960AAAAAi/mochi-peach-cat-goma.gif" alt="Love">
+        </div>
+        <div class="script-box">
+What did you say? You already know you are special? 
+Yes you are and that is why I want you to be a big part of my life. My world has always been around sports... But with you, I have seen a life I never thought I am capable of living. A life where I wake up to the best smile in the world.
+
+A life where I can share everything, without having to put on a show. A life where I can pursue things that make me happy, knowing fully well that you will get behind me.
+        </div>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="nextPage(5)">Yes</button>
+            <button class="btn-no" onclick="nextPage(5)">No</button>
+        </div>
+    </section>
+
+    <section id="page5" class="page">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/Ym3i-M_p0EwAAAAAi/mochi-peach-cat-goma.gif" alt="Pleading">
+        </div>
+        <div class="script-box">
+Now Now Now…. I am not sure my words can convince you. May I interest you in a song or two?
+
+Made up your mind? Will you be my Valentine?
+        </div>
+
+        <div class="music-list">
+            <iframe src="https://open.spotify.com/embed/track/2" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/3" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/4" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/5" width="100%" height="80" frameBorder="0" allow="encrypted-media"></iframe>
+        </div>
+
+        <div class="btn-group" style="position: relative; height: 100px;">
+            <button class="btn-yes" onclick="nextPage('final')">Yes</button>
+            <button id="runaway-btn" class="btn-no" style="position: absolute; right: 20px;">No</button>
+        </div>
+    </section>
+
+    <section id="final" class="page">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/Onp28jGf4VwAAAAAi/mochi-cat.gif" alt="Kiss">
+        </div>
+        <div class="polaroid" style="--rot: 0deg; width: 80%; max-width: 300px;">
+            <img src="photo5.jpg" style="height: auto;">
+        </div>
+        <h1>Yayyyyy…. I Love You…</h1>
+        <p>Cant wait to tell the world I have a Valentine!</p>
+    </section>
+
+    <script>
+        function nextPage(target) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(target === 'final' ? 'final' : 'page' + target).classList.add('active');
+            createHeartShower();
+        }
+
+        // Runaway Button logic for Page 5
+        const noBtn = document.getElementById('runaway-btn');
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', moveButton);
+
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            noBtn.style.position = 'fixed';
+            noBtn.style.zIndex = '2000';
+        }
+
+        // Heart Shower
+        function createHeartShower() {
+            const emojis = ['❤️', '💖', '💘', '🌸', '✨'];
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('falling-heart');
+                heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+    </script>
+</body>
+</html>
